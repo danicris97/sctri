@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->id();
-            $table->strig('dni', 9)->unique()->nullable();
+            $table->string('dni', 9)->unique()->nullable();
             $table->string('nombre', 60);
             $table->string('apellido', 60);
             $table->string('rol', 45)->nulleable();

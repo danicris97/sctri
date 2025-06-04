@@ -9,7 +9,7 @@ class ControlPagoAlumno extends Model
 
     protected $table = 'controles_pagos_alumnos';
 
-    protected $fillable = ['pasantia_id', 'periodo', 'monto_estimulo', 'monto_recibo_de_sueldo', 'monto_deposito'];
+    protected $fillable = ['pasantia_id', 'periodo', 'monto_estimulo', 'monto_recibo_de_sueldo'];
 
     public function pasantia()
     {

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('actas_pasantias', function (Blueprint $table) {
             $table->id();
-            $table->foreing('control_documentacion_id')->constrained('controles_documentacion_pasantia')->onDelete('cascade');
+            $table->foreignId('control_documentacion_id')->constrained('controles_documentacion_pasantia')->onDelete('cascade');
             $table->string('numero_de_pase', 45);
             $table->date('fecha_pase');
             $table->string('tramite', 45)->nulleable();

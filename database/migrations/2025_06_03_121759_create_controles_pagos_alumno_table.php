@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('controles_pagos_alumno', function (Blueprint $table) {
             $table->id();
-            $table->foreingId('pasantias_id')->constrained('pasantias')->onDelete('cascade');
+            $table->foreignId('pasantias_id')->constrained('pasantias')->onDelete('cascade');
             $table->string('periodo', 45)->nullable();
-            $table->strign('monto_estimulo', 45)->nullable();
+            $table->string('monto_estimulo', 45)->nullable();
             $table->string('monto_recibo_de_sueldo', 45)->nullable();
-            $table->string('monto_deposito', 45)->nullable();
             $table->timestamps();
         });
     }
