@@ -1,5 +1,7 @@
 import { LucideIcon } from 'lucide-react';
 import type { Config } from 'ziggy-js';
+import { FormDataType } from '@inertiajs/inertia-react';
+import { FormDataConvertible } from '@inertiajs/core';
 
 export interface Auth {
     user: User;
@@ -22,12 +24,26 @@ export interface NavItem {
     isActive?: boolean;
 }
 
+export interface PageProps extends SharedData {
+    // Aquí puedes agregar props específicas de cada página
+    [key: string]: unknown;
+}
+
+export interface FlashMessage {
+    success?: string;
+    error?: string;
+    warning?: string;
+    info?: string;
+    [key: string]: unknown; // Para mensajes personalizados
+}
+
 export interface SharedData {
     name: string;
     quote: { message: string; author: string };
     auth: Auth;
     ziggy: Config & { location: string };
     sidebarOpen: boolean;
+    flash?: FlashMessage;
     [key: string]: unknown;
 }
 
@@ -41,3 +57,43 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export type PaginatedData<T> = {
+    data: T[];
+    links: {
+      first: string;
+      last: string;
+      prev: string | null;
+      next: string | null;
+    };
+  
+    meta: {
+      current_page: number;
+      from: number;
+      last_page: number;
+      path: string;
+      per_page: number;
+      to: number;
+      total: number;
+  
+      links: {
+        url: null | string;
+        label: string;
+        active: boolean;
+      }[];
+    };
+  };
+  
+  export type PageProps<
+    T extends Record<string, unknown> = Record<string, unknown>
+  > = T & {
+    auth: {
+      user: User;
+    };
+    flash: {
+      success: string | null;
+      error: string | null;
+    };
+    ziggy: Config & { location: string };
+  };
+  
