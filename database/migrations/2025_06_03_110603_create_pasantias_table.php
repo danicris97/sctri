@@ -17,7 +17,6 @@ return new class extends Migration
             $table->date('fecha_inicio')->nulleable();
             $table->integer('duracion')->nulleable();
             $table->date('fecha_fin')->nulleable();
-            $table->string('estado', 45)->nulleable();
             $table->string('domicilio', 45)->nulleable();
             $table->string('tareas', 45)->nulleable();
             $table->foreignId('alumno_carrera_id')->constrained('alumno_carrera')->onDelete('cascade');

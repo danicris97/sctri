@@ -12,7 +12,6 @@ class Pasantia extends Model
         'fecha_inicio', 
         'duracion', 
         'fecha_fin',
-        'estado', 
         'monto', 
         'domicilio', 
         'tareas', 

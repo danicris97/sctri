@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Requests\Pasantias;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class PasantiaUpdateRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return false;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        // Reusa las reglas de store, pero podrías agregar validación especial en update
+        return parent::rules();
+    }
+}
